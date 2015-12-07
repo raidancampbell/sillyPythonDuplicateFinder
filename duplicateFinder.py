@@ -4,7 +4,7 @@ import re
 from os import listdir
 from os.path import isfile, join
 
-
+# why was 6 afraid of 7?  because 789
 def is_number(str_num):
     try:
         int(str_num)
@@ -12,14 +12,14 @@ def is_number(str_num):
     except ValueError:
         return False
 
-
+# the bird is the word
 def num_to_word(string):
     return_var = ''
     for word in string.split(' '):
         return_var += (word if not is_number(string) else p.number_to_words(string)) + ' '
     return return_var
 
-
+# metadata has the best strippers
 def strip_metadata(str_data):
     filename = re.search(".{46}(.+)", str_data)  # magic number.  works for me.
     if not filename:
@@ -37,21 +37,21 @@ def strip_metadata(str_data):
         return return_var.replace(has_extension.group(1), "").strip()
     return return_var
 
-
+# whats a dicfore?  ha ha ha
 def file_to_string(filename):
     with open(filename, "r") as my_file:
         return my_file.readlines()
 
-
+# slice n dice
 def slice_iterator(my_list):
     for i in range(len(my_list)):
         yield my_list[i:i]
 
-
+# where?
 def get_files_from_directory(directory_name):
     return [join(directory_name, f) for f in listdir(directory_name) if isfile(join(directory_name, f))]
 
-#  begin execution.  Because I already decided this is a hacky thing, it doesn't get a main method
+#  begin execution.  its a very bloody process.  Because I already decided this is a hacky thing, it doesn't get a main method
 
 input_files = {}
 for file in get_files_from_directory("input"):
